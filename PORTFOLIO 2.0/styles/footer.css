@@ -1,4 +1,10 @@
-body footer {
+footer {
     height: 50vh;
     width: 100vw;
+    display: flex;
+    padding: 10px 20px;
+}
+
+footer table tr td {
+    border: 1px solid red;
 }
