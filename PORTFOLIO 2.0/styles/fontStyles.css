@@ -15,6 +15,11 @@
     font-weight: 300;
 }
 
+.poppins-thin {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 100;
+}
+
 .poppins-medium {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;

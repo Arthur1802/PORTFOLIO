@@ -1,0 +1,28 @@
+body main {
+    background: var(--primary-bg-color);
+    width: 100vw;
+    height: 100vh;
+}
+
+.introduction-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.introduction-section .introduction-img {
+    width: 500px; /* Define wether to use a square or a circular picture frame */
+    /* width: 50%; */
+    aspect-ratio: 1/1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+}
+
+.introduction-section .introduction-text {
+    width: 50%;
+    text-align: left;
+}

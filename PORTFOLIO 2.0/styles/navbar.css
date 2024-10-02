@@ -1,0 +1,132 @@
+body header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background: var(--primary-bg-color);
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+body header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+}
+
+body header nav .logo {
+    width: 100px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--navbar-text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+body header nav .logo .subtitle {
+    font-size: 0.8rem;
+    color: var(--navbar-text-color);
+}
+
+body header nav ul {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+/* body header nav ul li a {
+    width: 100px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 1px solid var(--navbar-btn-border-color);
+    transition: background 0.3s ease;
+}
+
+body header nav ul li a.active, body header nav ul li a:hover {
+    background: var(--navbar-active-btn-bg-color);
+    color: var(--navbar-active-btn-text-color);
+    border-color: transparent;
+}
+
+body header nav ul li a:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+body header nav ul li a {
+    text-decoration: none;
+    color: var(--navbar-text-color);
+} */
+
+body header nav ul li a {
+    text-decoration: none;
+    color: var(--navbar-text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+body header nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--navbar-text-color);
+    transition: width 0.3s ease;
+}
+
+body header nav ul li a:hover::after {
+    width: 100%;
+}
+
+body header nav ul li a.contact {
+    width: 100px;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    background: var(--primary-bg-color);
+    border: 1px solid var(--navbar-btn-border-color);
+    transition: background 0.3s ease;
+}
+
+body header nav ul li a.contact:hover {
+    background: var(--navbar-active-btn-bg-color);
+    color: var(--navbar-active-btn-text-color);
+    border-color: transparent;
+}
+
+/* body header nav .hamburguer-menu {
+    width: 35px;
+    height: 35px;
+    background: transparent;
+    outline: none;
+    border: none;
+}
+
+body header nav .hamburguer-menu svg .bars {
+    display: none;
+    position: absolute;
+    fill: #fff;
+} */

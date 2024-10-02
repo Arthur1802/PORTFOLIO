@@ -1,0 +1,14 @@
+:root {
+    /* BASE COLORS */
+    --primary-bg-color: #f5f5f5;
+    --secondary-bg-color: #d5d5d5;
+    --primary-text-color: #232323;
+    --secondary-text-color: #f5f5f5;
+
+    /* NAVBAR COLORS */
+    --navbar-text-color: #232323;
+    --navbar-btn-bg-color: transparent;
+    --navbar-active-btn-bg-color: #232323;
+    --navbar-active-btn-text-color: #f5f5f5;
+    --navbar-btn-border-color: #f5f5f5;
+}

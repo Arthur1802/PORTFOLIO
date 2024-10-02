@@ -1,0 +1,22 @@
+@import url('./variables.css');
+@import url('./fontStyles.css');
+@import url('./navbar.css');
+@import url('./main.css');
+@import url('./footer.css');
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
