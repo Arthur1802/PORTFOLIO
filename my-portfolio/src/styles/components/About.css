@@ -1,0 +1,22 @@
+.about-section {
+    margin: 225px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profile-img {
+    width: 50%;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.about-text {
+    margin: 0 auto;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
