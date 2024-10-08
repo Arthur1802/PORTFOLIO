@@ -1,4 +1,4 @@
-import '../styles/components/About.css'
+import '../styles/sections/About.css'
 import profile_img from '../assets/images/profile_img.jpg'
 
 const About = () => {

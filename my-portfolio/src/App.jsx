@@ -1,8 +1,8 @@
 // import { useState } from 'react'
 import './styles/App.css'
-import About from './components/About'
-import Footer from './components/Footer'
-import Navbar from './components/Navbar'
+import About from './sections/About'
+import Footer from './sections/Footer'
+import Navbar from './sections/Navbar'
 
 const App = () => {
   // const [theme, setTheme] = useState(false)
