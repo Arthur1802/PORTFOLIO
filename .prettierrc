@@ -1,0 +1,12 @@
+{
+    "htmlWhitespaceSensitivity": "strict",
+    "singleAttributePerLine": false,
+    "tabWidth": 4,
+    "useTabs": true,
+    "bracketSpacing": true,
+    "jsxSingleQuote": true,
+    "singleQuote": true,
+    "semi": false,
+    "endOfLine": "lf",
+    "vueIndentScriptAndStyle": true
+}

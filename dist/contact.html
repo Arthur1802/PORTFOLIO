@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script
+			type="module"
+			src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.esm.js"
+		></script>
+		<script
+			nomodule
+			src="https://cdn.jsdelivr.net/npm/ionicons@latest/dist/ionicons/ionicons.js"
+		></script>
+		<link href="./css/main.css" rel="stylesheet" />
+		<title>Welcome To My Portfolio - Contact</title>
+	</head>
+	<body>
+		<header>
+			<div class="menu-btn">
+				<div class="btn-line"></div>
+				<div class="btn-line"></div>
+				<div class="btn-line"></div>
+			</div>
+
+			<nav class="menu">
+				<div class="portrait">
+					<img src="./img/portrait.jpg" alt="profilePicture" />
+				</div>
+
+				<ul class="menu-nav">
+					<li class="nav-item">
+						<a href="index.html" class="nav-link"> Home </a>
+					</li>
+					<li class="nav-item">
+						<a href="about.html" class="nav-link"> About Me </a>
+					</li>
+					<li class="nav-item">
+						<a href="work.html" class="nav-link"> My Work </a>
+					</li>
+					<li class="nav-item">
+						<a href="contact.html" class="nav-link">
+							How To Reach Me
+						</a>
+					</li>
+				</ul>
+			</nav>
+		</header>
+
+		<main id="contact">
+			<h1 class="lg-heading">
+				<span>Contact</span>
+				<span class="text-secondary">Me</span>
+			</h1>
+			<h2 class="sm-heading">
+				<span
+					>Feel free to explore my projects and reach out if you’d
+					like to collaborate or chat about tech!
+				</span>
+			</h2>
+			<div class="">
+				<form id="contact-form">
+					<div class="inputBoxes">
+						<label for="user_name">Name:</label>
+						<input
+							type="text"
+							name="user_name"
+							id="user_name"
+							placeholder="Jonh Doe"
+							required
+						/>
+					</div>
+
+					<div class="inputBoxes">
+						<label for="user_email">Email:</label>
+						<input
+							type="email"
+							name="user_email"
+							id="user_email"
+							placeholder="your.email@example.com"
+							required
+						/>
+					</div>
+
+					<div class="inputBoxes">
+						<label for="message">Message:</label>
+						<textarea
+							name="message"
+							id="message"
+							required
+						></textarea>
+					</div>
+
+					<button type="submit">Send</button>
+				</form>
+				<p id="status-message"></p>
+			</div>
+		</main>
+		<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+		<script src="./js/main.js"></script>
+	</body>
+</html>

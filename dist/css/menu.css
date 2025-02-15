@@ -1,0 +1,98 @@
+.menu {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.menu.show {
+  position: absolute;
+  height: 100vh;
+}
+.menu > * {
+  width: 50vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease-in-out;
+}
+.menu .portrait {
+  background: rgba(80.75, 80.75, 80.75, 0.8);
+  transform: translateY(-200%);
+}
+.menu .portrait.show {
+  transform: translateY(0);
+}
+.menu .portrait img {
+  width: 200px;
+  height: 200px;
+  border: 2px solid rgb(10, 132, 255);
+  border-radius: 50%;
+}
+.menu .menu-nav {
+  background: rgba(119, 119, 119, 0.8);
+  transform: translateY(200%);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+.menu .menu-nav.show {
+  transform: translateY(0);
+}
+.menu .menu-nav .nav-item {
+  font-size: 2em;
+}
+.menu .menu-nav .nav-item a {
+  display: block;
+  position: relative;
+}
+.menu .menu-nav .nav-item a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: #fff;
+  transition: width 0.3s ease-out;
+}
+.menu .menu-nav .nav-item a:hover::after {
+  width: 100%;
+}
+
+.menu-btn {
+  position: absolute;
+  z-index: 4;
+  top: 35px;
+  right: 35px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5px;
+}
+.menu-btn .btn-line {
+  width: 28px;
+  height: 2.5px;
+  background: #fff;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn.close {
+  transform: rotate(45deg);
+}
+.menu-btn.close .btn-line:nth-child(1) {
+  transform: rotate(90deg);
+  width: 45%;
+  background: red;
+}
+.menu-btn.close .btn-line:nth-child(2) {
+  background: red;
+}
+.menu-btn.close .btn-line:nth-child(3) {
+  transform: rotate(90deg);
+  width: 45%;
+  background: red;
+}
