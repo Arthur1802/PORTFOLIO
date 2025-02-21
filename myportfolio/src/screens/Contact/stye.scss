@@ -1,0 +1,92 @@
+@use '@/styles/config.scss' as *;
+@use 'sass:color';
+
+form {
+	max-width: 35vw;
+	aspect-ratio: 2/1;
+	margin-top: 2rem;
+	padding: 1rem 2rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	background: rgba(color.adjust($primary-color, $lightness: -10%), 0.8);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+	border-radius: 10px;
+	border: 1px solid rgba(color.adjust($primary-color, $lightness: -10%), 0.5);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+	.names {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 5%;
+	}
+
+	.input-boxes {
+		width: 50%;
+		padding: 5px 0px;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		border-bottom: 2px solid setTextColor($primary-color);
+
+		&:has(input[type='email']) {
+			width: 100%;
+		}
+
+		input,
+		textarea {
+			font-size: 1rem;
+			font-family: 'Poppins';
+			outline: none;
+			background: transparent;
+			color: setTextColor($primary-color);
+			border: none;
+		}
+
+		label {
+			min-width: max-content;
+		}
+
+		&#textarea {
+			width: 100%;
+			position: relative;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+			border: none;
+
+			textarea {
+				width: 100%;
+				border: 1px solid setTextColor($primary-color);
+				border-radius: 10px;
+				aspect-ratio: 1/0.25;
+				padding: 10px;
+				resize: vertical;
+			}
+		}
+	}
+	.btns {
+		width: 80%;
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 15%;
+
+		button {
+			width: 100%;
+			@include buttonStyle();
+
+			&[type='reset'] {
+				@include buttonStyle('reset');
+			}
+		}
+	}
+}

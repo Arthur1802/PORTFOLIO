@@ -1,0 +1,127 @@
+@use 'sass:color';
+
+$primary-color: #444;
+$secondary-color: rgb(10, 132, 255);
+$show-home-img: true;
+$home-img: url('@/assets/img/background.jpg');
+$background-opacity: 0.8;
+
+@function setTextColor($color) {
+	@if (color.channel($color, 'lightness', $space: hsl) > 50) {
+		@return #000;
+	} @else {
+		@return #fff;
+	}
+}
+
+@mixin paddingVertical($value) {
+	padding-top: $value;
+	padding-bottom: $value;
+}
+
+@mixin paddingHorizontal($value) {
+	padding-left: $value;
+	padding-right: $value;
+}
+
+@mixin easeOut {
+	transition: all 0.5s ease;
+}
+
+@mixin background {
+	@if $show-home-img {
+		&#bg-img {
+			background: $home-img;
+			background-attachment: fixed;
+			background-size: cover;
+		}
+	}
+}
+
+@mixin buttonStyle($type: null) {
+	$bg-color: $secondary-color;
+	$border: 2px solid color.adjust($secondary-color, $lightness: -10%);
+
+	@if $type == 'reset' {
+		$bg-color: red;
+		$border: 2px solid color.adjust(red, $lightness: -10%);
+	}
+
+	outline: none;
+	border: $border;
+	padding: 10px;
+	background: transparent;
+	color: #fff;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: center;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.1s ease-out;
+
+	&:focus,
+	&:hover {
+		background: $bg-color;
+	}
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	font-weight: 400;
+
+	&.lg-heading {
+		font-size: 6rem;
+		display: flex;
+		flex-direction: row;
+		gap: 30px;
+	}
+
+	&.sm-heading {
+		max-width: max-content;
+		margin-top: 2rem;
+		padding: 0.2rem 1rem;
+		border-radius: 10px;
+		border: 1px solid
+			rgba(color.adjust($primary-color, $lightness: 30%), 0.5);
+		background: rgba(color.adjust($primary-color, $lightness: 20%), 0.5);
+		backdrop-filter: blur(10px);
+		-webkit-backdrop-filter: blur(10px);
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+	}
+}
+
+a {
+	color: #fff;
+	text-decoration: none;
+}
+
+.text-secondary {
+	color: $secondary-color;
+}
+
+// Media Query Mixins
+@mixin mediaSm {
+	@media screen and (max-width: 500px) {
+		@content;
+	}
+}
+
+@mixin mediaMd {
+	@media screen and (max-width: 768px) {
+		@content;
+	}
+}
+
+@mixin mediaLg {
+	@media screen and (min-width: 769px) and (max-width: 1170px) {
+		@content;
+	}
+}
+
+@mixin mediaXl {
+	@media screen and (min-width: 1171px) {
+		@content;
+	}
+}

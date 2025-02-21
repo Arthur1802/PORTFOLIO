@@ -1,13 +1,11 @@
 .menu {
+  position: absolute;
   width: 100vw;
-  height: 10vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.menu.show {
-  position: absolute;
-  height: 100vh;
+  z-index: 2;
 }
 .menu > * {
   width: 50vw;
@@ -15,7 +13,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.5s ease-in-out;
+  z-index: 2;
 }
 .menu .portrait {
   background: rgba(80.75, 80.75, 80.75, 0.8);
@@ -23,6 +21,7 @@
 }
 .menu .portrait.show {
   transform: translateY(0);
+  transition: all 0.5s ease;
 }
 .menu .portrait img {
   width: 200px;
@@ -36,6 +35,7 @@
   display: flex;
   flex-direction: column;
   list-style: none;
+  transition: all 0.5s ease;
 }
 .menu .menu-nav.show {
   transform: translateY(0);
@@ -47,6 +47,13 @@
   display: block;
   position: relative;
 }
+.menu .menu-nav .nav-item a.current {
+  color: rgb(10, 132, 255);
+}
+.menu .menu-nav .nav-item a.current::after {
+  width: 100%;
+  background: rgb(10, 132, 255);
+}
 .menu .menu-nav .nav-item a::after {
   content: "";
   position: absolute;
@@ -57,17 +64,17 @@
   background: #fff;
   transition: width 0.3s ease-out;
 }
-.menu .menu-nav .nav-item a:hover::after {
+.menu .menu-nav .nav-item a:not(.current):hover:after {
   width: 100%;
 }
 
 .menu-btn {
   position: absolute;
-  z-index: 4;
+  z-index: 3;
   top: 35px;
   right: 35px;
   cursor: pointer;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -78,7 +85,7 @@
   width: 28px;
   height: 2.5px;
   background: #fff;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease;
 }
 .menu-btn.close {
   transform: rotate(45deg);
@@ -101,20 +108,21 @@
   box-sizing: border-box;
 }
 
-body {
+body#bg-img {
   background: #444;
   color: #fff;
-  height: 100%;
+  height: 100vh;
+  width: 100vw;
   margin: 0;
   font-family: "Poppins";
   line-height: 1.5;
 }
-body#bg-img {
+body#bg-img#bg-img {
   background: url("../img/background.jpg");
   background-attachment: fixed;
   background-size: cover;
 }
-body:after {
+body#bg-img:after {
   content: "";
   background: rgba(68, 68, 68, 0.8);
   position: absolute;
@@ -156,7 +164,6 @@ a {
 
 header {
   position: fixed;
-  z-index: 2;
   width: 100%;
 }
 
@@ -167,23 +174,26 @@ header {
 main {
   padding: 4rem;
   height: 100%;
-}
-main .icons {
-  margin-top: 1rem;
-}
-main .icons a {
-  padding: 0.4rem;
-  font-size: 2em;
-}
-main .icons a:hover {
-  color: rgb(10, 132, 255);
-  transition: all 0.5s ease-in-out;
+  z-index: 1;
 }
 main#home {
   overflow: hidden;
 }
 main#home h1 {
   margin-top: 20vh;
+}
+main#home .icons {
+  position: relative;
+  margin-top: 1rem;
+  z-index: 1;
+}
+main#home .icons a {
+  padding: 0.4rem;
+  font-size: 2em;
+}
+main#home .icons a:hover {
+  color: rgb(10, 132, 255);
+  transition: all 0.5s ease;
 }
 main#contact form {
   margin-top: 2rem;
@@ -226,5 +236,41 @@ main#contact form button:focus {
   background: rgb(0, 81.1673469388, 163);
 }
 main#contact form button:hover {
+  background: rgb(61, 157.6040816327, 255);
+}
+main#projects .projects-container {
+  margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+main#projects .projects-container div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+main#projects .projects-container div iframe {
+  border-radius: 10px;
+}
+main#projects .projects-container div button {
+  outline: none;
+  border: 1px solid rgb(0, 106.5632653061, 214);
+  padding: 10px;
+  background: rgb(10, 132, 255);
+  color: #fff;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.1s ease-out;
+  padding: 5px;
+}
+main#projects .projects-container div button:focus {
+  background: rgb(0, 81.1673469388, 163);
+}
+main#projects .projects-container div button:hover {
   background: rgb(61, 157.6040816327, 255);
 }

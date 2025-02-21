@@ -1,0 +1,173 @@
+@use '@/styles/config.scss' as *;
+
+// Laptops
+@media screen and (max-width: 1024px) {
+	#bg-img {
+		main {
+			section {
+				.sm-heading {
+					max-width: 75dvw;
+				}
+
+				&#contact {
+					form {
+						max-width: 75dvw;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Tablets
+@media screen and (max-width: 800px) {
+	#bg-img {
+		main {
+			section {
+				.sm-heading {
+					max-width: 100dvw;
+				}
+				&#contact {
+					form {
+						max-width: 100dvw;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Large Smartphones
+@media screen and (max-width: 500px) {
+	#bg-img {
+		overflow: hidden;
+		main {
+			.menu-btn {
+				top: 25px;
+				right: 25px;
+			}
+
+			.portrait,
+			.menu-nav {
+				width: 100vw;
+				height: 50vh;
+
+				&.show {
+					transform: translateX(0);
+				}
+			}
+
+			.portrait {
+				transform: translateX(-100%);
+			}
+
+			.menu-nav {
+				top: 50%;
+				transform: translateX(100%);
+			}
+
+			section {
+				overflow-x: hidden;
+				min-height: 100vh;
+
+				&[id] {
+					padding: 1rem !important;
+
+					h1 {
+						margin-top: 10vh;
+					}
+
+					.lg-heading {
+						width: 10vw;
+						display: flex;
+						justify-content: flex-start;
+						align-items: center;
+						flex-wrap: wrap;
+						gap: 0px;
+						margin-top: 1rem;
+						font-size: 3rem;
+					}
+				}
+
+				&#about {
+					.about-info {
+						// grid-template-areas:
+						// 	'bioimage'
+						// 	'bio'
+						// 	'bio'
+						// 	'job1'
+						// 	'job2'
+						// 	'job3';
+						// grid-template-columns: repeat(1, 1fr);
+						display: flex;
+						flex-direction: column;
+
+						.bio {
+							text-align: justify;
+						}
+					}
+				}
+
+				&#projects {
+					.projects-container {
+						width: 100dvw;
+						flex-direction: column;
+
+						.card-wrapper {
+							width: 90dvw;
+						}
+					}
+				}
+
+				&#contact {
+					form {
+						margin: 2rem auto;
+						min-width: 85dvw;
+						aspect-ratio: 1/1;
+
+						.input-boxes {
+							label {
+								width: 0;
+								display: none;
+							}
+
+							input {
+								width: 100%;
+							}
+						}
+
+						.btns {
+							width: 100%;
+							gap: 5%;
+
+							button {
+								width: 50%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 400px) {
+	#bg-img {
+		main {
+			section {
+				&#contact {
+					form {
+						.btns {
+							width: 100%;
+							gap: 5%;
+
+							button {
+								width: 50%;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

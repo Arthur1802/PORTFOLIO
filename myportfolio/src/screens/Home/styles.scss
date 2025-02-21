@@ -1,0 +1,21 @@
+@use '@/styles/config.scss' as *;
+
+#home {
+	.icons {
+		margin-top: 1rem;
+
+		h1 {
+			margin-top: 20vh;
+		}
+
+		a {
+			padding: 0.4rem;
+			font-size: 2em;
+
+			&:hover {
+				color: $secondary-color;
+				@include easeOut;
+			}
+		}
+	}
+}

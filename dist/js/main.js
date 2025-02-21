@@ -1,6 +1,22 @@
-import { sendEmail } from "./sendEmail"
+if (document.readyState === 'loading') {
+    const loadingScreen = document.createElement('div')
+    loadingScreen.setAttribute('id', 'loading-screen')
+    loadingScreen.innerHTML = `
+    <span id="spinner"></span>
+    <span id="loading-text">Loading...</span>
+    `
+    document.body.appendChild(loadingScreen)
 
-document.addEventListener("DOMContentLoaded", function () {
+    setTimeout(() => {
+        document.addEventListener('DOMContentLoaded', init)
+    }, 2000)
+} else {
+    init()
+}
+
+function init() {
+    console.log('Script loaded!')
+
     const menu = document.querySelector('.menu')
     const menuBtn = document.querySelector('.menu-btn')
     const menuPortrait = document.querySelector('.portrait')
@@ -8,34 +24,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let showMenu = false
 
-    menuBtn.addEventListener('click', () => {
-        if (!showMenu) {
-            menuBtn.classList.add('close')
-            menu.classList.add('show')
-            menuPortrait.classList.add('show')
-            menuNav.classList.add('show')
-        } else {
-            menuBtn.classList.remove('close')
-            menu.classList.remove('show')
-            menuPortrait.classList.remove('show')
-            menuNav.classList.remove('show')
-        }
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            console.log('Menu btn clicked!')
 
-        showMenu = !showMenu
-    })
+            if (!showMenu) {
+                console.log('Opening menu...')
+                menuBtn.classList.add('close')
+                menu.classList.add('show')
+                menuPortrait.classList.add('show')
+                menuNav.classList.add('show')
+            } else {
+                console.log('Closing menu...')
+                menuBtn.classList.remove('close')
+                menu.classList.remove('show')
+                menuPortrait.classList.remove('show')
+                menuNav.classList.remove('show')
+            }
 
-    document.getElementById("contact-form").addEventListener("submit", async function (event) {
-        event.preventDefault();
+            showMenu = !showMenu
+        })
+    }
 
-        console.log('Form submited!')
+}
+document.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener('load', () => {
+        var navLinks = document.querySelectorAll('.nav-link')
+        console.log('Updating nav items...')
+        const currentPageName = window.location.pathname.split('/').pop().split('.')[0]
 
-        try {
-            console.log('Sending email...')
-            await sendEmail()
-            console.log('Email sent!')
-            this.reset()
-        } catch (e) {
-            console.error(e)
+        navLinks.forEach(link => {
+            const linkHref = link.getAttribute('href').split('.')[0] // Get the page name from href
+
+            if (linkHref === currentPageName) {
+                console.log('Comparison: ' + linkHref + ' | ' + currentPageName)
+                link.classList.add('current')
+            } else {
+                console.log('Comparison: ' + linkHref + ' | ' + currentPageName)
+                link.classList.remove('current')
+            }
+        })
+
+        // Remove loading screen once everything is loaded
+        const loadingScreen = document.getElementById('loading-screen')
+        if (loadingScreen) {
+            loadingScreen.remove()
         }
     })
 })

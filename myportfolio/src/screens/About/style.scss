@@ -1,0 +1,55 @@
+@use '@/styles/config.scss' as *;
+@use 'sass:color';
+
+#about {
+	backdrop-filter: blur(20px);
+	-webkit-backdrop-filter: blur(20px);
+
+	.about-info {
+		margin-top: 10vh;
+
+		img {
+			width: 250px;
+			aspect-ratio: 1/1;
+		}
+
+		display: grid;
+		grid-gap: 30px;
+		grid-template-areas:
+			'bioimage bio bio'
+			'job1 job2 job3';
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.bio-img {
+		grid-area: bioimage;
+		margin: auto;
+		border-radius: 50%;
+		border: 3px solid $secondary-color;
+	}
+
+	.bio {
+		grid-area: bio;
+		font-size: 1.5rem;
+
+		button {
+			outline: none;
+			border: none;
+			background: transparent;
+			color: color.adjust($primary-color, $lightness: 50%);
+			cursor: pointer;
+		}
+	}
+
+	@for $i from 1 through 3 {
+		.job-#{$i} {
+			grid-area: job#{$i};
+		}
+	}
+
+	.job {
+		background: color.adjust($primary-color, $lightness: 5%);
+		padding: 0.5rem;
+		border-bottom: 5px solid $secondary-color;
+	}
+}

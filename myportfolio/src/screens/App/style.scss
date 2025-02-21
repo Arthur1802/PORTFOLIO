@@ -1,0 +1,192 @@
+@use '@/styles/config.scss' as *;
+@use '@/styles/mobile.scss';
+@use 'sass:color';
+
+* {
+	box-sizing: border-box;
+	user-select: none;
+
+	&::-webkit-scrollbar {
+		position: absolute;
+		width: 10px;
+	}
+
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: color.adjust($primary-color, $lightness: 10%);
+		border-radius: 10px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background: transparent;
+	}
+
+	&::-webkit-scrollbar-track-piece {
+		background: transparent;
+	}
+}
+
+#bg-img {
+	@include background;
+	background: $primary-color;
+	color: setTextColor($primary-color);
+	width: 100%;
+	height: 100vh;
+	margin: 0;
+	font-family: 'Poppins';
+	line-height: 1.5;
+	z-index: 0;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: hidden;
+
+	&::after {
+		content: '';
+		background: rgba($primary-color, $background-opacity);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1;
+	}
+
+	section {
+		max-height: 95vh;
+		position: relative;
+		@include paddingHorizontal(4rem);
+		padding-bottom: 5vh;
+		z-index: 1;
+		overflow: auto;
+	}
+
+	.menu-btn {
+		position: absolute;
+		z-index: 4;
+		top: 35px;
+		right: 35px;
+		cursor: pointer;
+		@include easeOut;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+		gap: 5px;
+
+		.btn-line {
+			width: 28px;
+			height: 2.5px;
+			background: #fff;
+			@include easeOut;
+		}
+
+		&.close {
+			transform: rotate(45deg);
+
+			.btn-line {
+				&:nth-child(1) {
+					transform: rotate(90deg);
+					width: 45%;
+					background: red;
+				}
+
+				&:nth-child(2) {
+					background: red;
+				}
+
+				&:nth-child(3) {
+					transform: rotate(90deg);
+					width: 45%;
+					background: red;
+				}
+			}
+		}
+	}
+
+	.portrait,
+	.menu-nav {
+		position: absolute;
+		width: 50vw;
+		height: 100%;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		z-index: 3;
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+
+		&.show {
+			transform: translateY(0);
+		}
+	}
+
+	.portrait {
+		top: 0;
+		left: 0;
+		background: rgba(color.adjust($primary-color, $lightness: 5%), 0.5);
+		transform: translateY(-100%);
+		@include easeOut;
+
+		div {
+			background-image: url('@/assets/img/portrait.jpg');
+			background-attachment: fixed;
+			background-size: cover;
+			width: 200px;
+			height: 200px;
+			border: 2px solid $secondary-color;
+			border-radius: 50%;
+		}
+	}
+
+	.menu-nav {
+		top: 0;
+		right: 0;
+		background: rgba(color.adjust($primary-color, $lightness: 20%), 0.8);
+		transform: translateY(100%);
+		display: flex;
+		flex-direction: column;
+		list-style: none;
+		@include easeOut;
+
+		.nav-item {
+			font-size: 2em;
+
+			a {
+				position: relative;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				color: setTextColor($primary-color);
+
+				&.active {
+					&::after {
+						width: 105%;
+					}
+				}
+			}
+
+			a::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				left: -2.5%;
+				height: 3px;
+				width: 0;
+				background: setTextColor($primary-color);
+				transition: width 0.3s ease-out;
+			}
+
+			a:not(.active):hover:after {
+				width: 105%;
+			}
+		}
+	}
+}
