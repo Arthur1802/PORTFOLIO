@@ -8,11 +8,6 @@
 	.about-info {
 		margin-top: 10vh;
 
-		img {
-			width: 250px;
-			aspect-ratio: 1/1;
-		}
-
 		display: grid;
 		grid-gap: 30px;
 		grid-template-areas:
@@ -23,9 +18,12 @@
 
 	.bio-img {
 		grid-area: bioimage;
+		display: block;
 		margin: auto;
 		border-radius: 50%;
 		border: 3px solid $secondary-color;
+		width: 250px;
+		aspect-ratio: 1/1;
 	}
 
 	.bio {

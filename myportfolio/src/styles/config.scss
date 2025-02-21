@@ -3,7 +3,8 @@
 $primary-color: #444;
 $secondary-color: rgb(10, 132, 255);
 $show-home-img: true;
-$home-img: url('@/assets/img/background.jpg');
+$home-img: url('/assets/img/background.jpg');
+$my-img: url('/assets/img/portrait.jpg');
 $background-opacity: 0.8;
 
 @function setTextColor($color) {

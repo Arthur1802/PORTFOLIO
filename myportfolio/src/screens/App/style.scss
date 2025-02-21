@@ -135,11 +135,11 @@
 		@include easeOut;
 
 		div {
-			background-image: url('@/assets/img/portrait.jpg');
+			background-image: $my-img;
 			background-attachment: fixed;
 			background-size: cover;
 			width: 200px;
-			height: 200px;
+			aspect-ratio: 1/1;
 			border: 2px solid $secondary-color;
 			border-radius: 50%;
 		}

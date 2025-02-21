@@ -10,7 +10,7 @@ const AboutScreen = () => (
         <h2 className="sm-heading">Here are some things about me...</h2>
 
         <div className="about-info">
-            <img src="./src/assets/img/portrait.jpg" alt="Arthur Quinellato" className="bio-img" />
+            <img src={import.meta.env.BASE_URL + "/assets/img/portrait.jpg"} alt="Arthur Quinellato" className="bio-img" />
 
             <div className="bio">
                 <h3 className="text-secondary">BIO</h3>
