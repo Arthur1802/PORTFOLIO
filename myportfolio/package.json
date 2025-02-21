@@ -1,5 +1,6 @@
 {
   "name": "myportfolio",
+  "homepage": "https://arthur-qob.github.io/portfolio-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,7 +8,9 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "nom run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "aos": "^2.3.4",
