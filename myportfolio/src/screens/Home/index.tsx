@@ -23,7 +23,7 @@ export const HomeScreen = () => {
                 >
                     <i className="fa-brands fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/Arthur1802" target="_blank">
+                <a href="https://github.com/arthur-qob" target="_blank">
                     <i className="fa-brands fa-github"></i>
                 </a>
             </div>
