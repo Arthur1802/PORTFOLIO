@@ -14,40 +14,38 @@
 			'bioimage bio bio'
 			'job1 job2 job3';
 		grid-template-columns: repeat(3, 1fr);
-	}
+		grid-template-rows: auto auto;
 
-	.bio-img {
-		grid-area: bioimage;
-		display: block;
-		margin: auto;
-		border-radius: 50%;
-		border: 3px solid $secondary-color;
-		width: 250px;
-		aspect-ratio: 1/1;
-	}
-
-	.bio {
-		grid-area: bio;
-		font-size: 1.5rem;
-
-		button {
-			outline: none;
-			border: none;
-			background: transparent;
-			color: color.adjust($primary-color, $lightness: 50%);
-			cursor: pointer;
+		.bio-img {
+			grid-area: bioimage;
+			width: 100%;
+			margin: auto;
+			max-width: 250px;
 		}
-	}
 
-	@for $i from 1 through 3 {
-		.job-#{$i} {
-			grid-area: job#{$i};
+		.bio {
+			grid-area: bio;
+			font-size: 1.5rem;
+
+			button {
+				outline: none;
+				border: none;
+				background: transparent;
+				color: color.adjust($primary-color, $lightness: 50%);
+				cursor: pointer;
+			}
 		}
-	}
 
-	.job {
-		background: color.adjust($primary-color, $lightness: 5%);
-		padding: 0.5rem;
-		border-bottom: 5px solid $secondary-color;
+		@for $i from 1 through 3 {
+			.job-#{$i} {
+				grid-area: job#{$i};
+			}
+		}
+
+		.job {
+			background: color.adjust($primary-color, $lightness: 5%);
+			padding: 0.5rem;
+			border-bottom: 5px solid $secondary-color;
+		}
 	}
 }

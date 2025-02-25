@@ -3,6 +3,7 @@ import { NavLink, useLocation } from 'react-router-dom'
 // import LanguageSelector from '@/components/LanguageSelector/LanguageSelector'
 import AppRoutes from '@/AppRoutes'
 import './style.scss'
+import Myimg from '@/components/MyImg/myimg'
 
 const App = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -44,7 +45,7 @@ const App = () => {
             </div>
 
             <div className="portrait" ref={portraitRef}>
-                <div className="profileImage"></div>
+                <Myimg />
             </div>
 
             <ul className="menu-nav" ref={menuNavRef}>

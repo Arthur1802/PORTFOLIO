@@ -32,6 +32,7 @@ export const ContactScreen = () => {
                     like to collaborate or chat about tech!
                 </span>
             </h2>
+            <h3 className="warning-text">THIS FORM IS STILL UNDER WORKS</h3>
             <form id="contact-form">
                 <div className="names">
                     <div className="input-boxes">

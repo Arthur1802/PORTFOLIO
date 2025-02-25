@@ -1,3 +1,4 @@
+import Myimg from '@/components/MyImg/myimg'
 import './style.scss'
 
 const AboutScreen = () => (
@@ -10,7 +11,9 @@ const AboutScreen = () => (
         <h2 className="sm-heading">Here are some things about me...</h2>
 
         <div className="about-info">
-            <img src={import.meta.env.BASE_URL + "/assets/img/portrait.jpg"} alt="Arthur Quinellato" className="bio-img" />
+            <div className="bio-img">
+                <Myimg />
+            </div>
 
             <div className="bio">
                 <h3 className="text-secondary">BIO</h3>
@@ -30,7 +33,7 @@ const AboutScreen = () => (
                 <p>In this role, I generate commercial documents for international trade and manage clients' virtual inventory. Although this position doesn't involve programming, I have utilized my knowledge and skills to develop automations that assist me, making my work easier, faster, and more efficient.</p>
             </div>
         </div>
-    </section>
+    </section >
 )
 
 export default AboutScreen

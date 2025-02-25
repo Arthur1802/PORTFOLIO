@@ -1,6 +1,25 @@
+import { useEffect, useRef } from 'react'
 import './style.scss'
 
 const ProjectsScreen = () => {
+    const detailsElements = useRef<NodeListOf<HTMLDetailsElement>>(null)
+
+    useEffect(() => {
+        detailsElements.current = document.querySelectorAll("details.card-content")
+
+        detailsElements.current.forEach((details) => {
+            details.addEventListener("toggle", function () {
+                if (this.open) {
+                    detailsElements.current?.forEach((otherDetails) => {
+                        if (otherDetails !== this && otherDetails.open) {
+                            otherDetails.removeAttribute("open")
+                        }
+                    })
+                }
+            })
+        })
+    }, [])
+
     return (
         <section id="projects">
             <h1 className="lg-heading">

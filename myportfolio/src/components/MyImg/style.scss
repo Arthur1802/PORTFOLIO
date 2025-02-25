@@ -1,0 +1,12 @@
+@use '@/styles/config.scss' as *;
+
+.img-container {
+	width: 250px;
+	aspect-ratio: 1/1;
+	background-image: $my-img;
+	background-size: cover;
+	background-attachment: scroll;
+	border: 3px solid $secondary-color;
+	border-radius: 50%;
+	overflow: hidden;
+}

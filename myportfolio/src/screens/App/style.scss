@@ -56,7 +56,7 @@
 	}
 
 	section {
-		max-height: 95vh;
+		max-height: 99dvh;
 		position: relative;
 		@include paddingHorizontal(4rem);
 		padding-bottom: 5vh;
@@ -133,16 +133,6 @@
 		background: rgba(color.adjust($primary-color, $lightness: 5%), 0.5);
 		transform: translateY(-100%);
 		@include easeOut;
-
-		div {
-			background-image: $my-img;
-			background-attachment: fixed;
-			background-size: cover;
-			width: 200px;
-			aspect-ratio: 1/1;
-			border: 2px solid $secondary-color;
-			border-radius: 50%;
-		}
 	}
 
 	.menu-nav {

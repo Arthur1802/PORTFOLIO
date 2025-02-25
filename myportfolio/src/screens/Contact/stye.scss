@@ -1,6 +1,45 @@
 @use '@/styles/config.scss' as *;
 @use 'sass:color';
 
+@keyframes underline {
+	from {
+		left: 0;
+	}
+	to {
+		left: 100%;
+	}
+}
+
+.warning-text {
+	position: relative;
+	width: max-content;
+	overflow-x: hidden;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 10px;
+	margin: 1rem 0rem;
+	color: rgb(255, 162, 18);
+	font-weight: 500;
+
+	&::before {
+		content: '\f071';
+		font-family: 'Font Awesome 5 Free';
+		font-weight: 900;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		height: 3px;
+		width: 20%;
+		background: rgb(255, 162, 18);
+		animation: underline 0.5s infinite;
+	}
+}
+
 form {
 	max-width: 35vw;
 	aspect-ratio: 2/1;
