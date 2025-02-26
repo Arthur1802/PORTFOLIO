@@ -1,100 +1,75 @@
 @use '@/styles/config.scss' as *;
 @use 'sass:color';
 
-// @keyframes expand {
-// 	0% {
-// 		max-height: 0;
-// 	}
-// 	50% {
-// 		max-height: 250px;
-// 	}
-// 	100% {
-// 		max-height: 500px;
-// 	}
-// }
-
-.projects-container {
-	margin-top: 2rem;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
-	align-items: flex-start;
-	gap: 3rem;
-
-	.card-wrapper {
-		width: 350px;
-		aspect-ratio: 1/0.5;
-		padding: 1rem;
-		border-radius: 10px;
+#projects {
+	.projects-container {
+		margin-top: 2rem;
 		display: flex;
-		flex-direction: column;
-		justify-content: center;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: flex-start;
 		align-items: flex-start;
-		gap: 10px;
-		border: 1px solid
-			rgba(color.adjust($primary-color, $lightness: -10%), 0.5);
-		background: rgba(color.adjust($primary-color, $lightness: -3%), 0.5);
-		backdrop-filter: blur(10px);
-		-webkit-backdrop-filter: blur(10px);
-		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+		gap: 3rem;
 
-		.card-img {
-			border: 1px solid white;
+		.card-wrapper {
+			width: 350px;
+			padding: 1rem;
 			border-radius: 10px;
-			width: 100%;
-			height: 200px;
-			background: color.adjust($primary-color, $lightness: -10%);
-		}
+			border: 1px solid
+				rgba(color.adjust($primary-color, $lightness: -10%), 0.5);
+			background: rgba(
+				color.adjust($primary-color, $lightness: -3%),
+				0.5
+			);
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+				0 1px 3px rgba(0, 0, 0, 0.08);
+			transition: transform 0.3s ease;
 
-		details {
-			width: 100%;
-			overflow: hidden;
-
-			&::details-content {
-				content-visibility: visible !important;
-				block-size: 0;
-				max-height: 0;
-				transition-property: max-height, block-size;
-				transition-duration: 0.5s;
-				transition-timing-function: ease-in-out;
-				padding: 0px 20px;
+			.card-img {
+				border: 1px solid white;
+				border-radius: 10px;
+				width: 100%;
+				height: 200px;
+				background: color.adjust($primary-color, $lightness: -10%);
 			}
 
-			summary {
-				list-style: none;
+			.toggler {
 				cursor: pointer;
 				display: flex;
 				align-items: center;
-				list-style-position: outside;
-				&::-webkit-details-marker {
-					display: none;
+				gap: 10px;
+				font-weight: bold;
+
+				&::before {
+					content: '\f054'; // FontAwesome icon
+					font-family: 'Font Awesome 5 Free';
+					font-weight: 900;
+					transition: transform 0.3s ease-in-out;
 				}
 
-				span {
-					display: flex;
-					flex-direction: row;
-					justify-content: flex-start;
-					align-items: center;
-					gap: 10px;
-
-					svg {
-						margin-left: 5px;
-						transition: transform 0.35s ease-in-out;
-					}
+				&.active::before {
+					transform: rotate(90deg);
 				}
 			}
 
-			&[open] {
-				summary {
-					svg {
-						transform: rotate(90deg);
-					}
+			.card-content {
+				max-height: 0;
+				opacity: 0;
+				overflow: hidden;
+				transition: max-height 0.5s ease-in-out,
+					opacity 0.3s ease-in-out;
+				padding: 0 !important; // Ensure no padding interferes
+
+				&.open {
+					max-height: 250px; // Adjust this value as needed
+					opacity: 1;
 				}
 
-				&::details-content {
-					block-size: 250px;
-					max-height: 250px;
+				&.closed {
+					max-height: 0;
+					opacity: 0;
 				}
 			}
 		}

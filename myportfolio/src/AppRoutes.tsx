@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
 
 // Pages
-import Home from './screens/Home/index.tsx'
-import About from './screens/About/index.tsx'
-import Projects from './screens/Projects/index.tsx'
-import Contact from './screens/Contact/index.tsx'
+import Home from '@/screens/Home/index.tsx'
+import About from '@/screens/About/index.tsx'
+import Projects from '@/screens/Projects/index.tsx'
+import Contact from '@/screens/Contact/index.tsx'
+import TestArea from '@/screens/TestArea/index.tsx'
 // import { withTranslation } from 'react-google-multi-lang'
 
 // const TranslatedHome = withTranslation(Home)
@@ -24,6 +25,7 @@ const AppRoutes = () => {
             <Route path="/about" element={<About />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/tests" element={<TestArea />} />
         </Routes>
     )
 }
