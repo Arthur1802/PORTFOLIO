@@ -3,6 +3,7 @@
 
 #projects {
 	.projects-container {
+		position: relative;
 		margin-top: 2rem;
 		display: flex;
 		flex-direction: row;
@@ -28,11 +29,25 @@
 			transition: transform 0.3s ease;
 
 			.card-img {
-				border: 1px solid white;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				aspect-ratio: 3/2;
 				border-radius: 10px;
-				width: 100%;
-				height: 200px;
 				background: color.adjust($primary-color, $lightness: -10%);
+				background-size: 180%;
+				background-position: top center;
+				background-attachment: scroll;
+				transition: background-size 0.3s ease-in-out;
+
+				&:hover {
+					background-size: 200%;
+				}
+
+				&::before {
+					content: 'PROJECT IMG HERE';
+				}
 			}
 
 			.toggler {
